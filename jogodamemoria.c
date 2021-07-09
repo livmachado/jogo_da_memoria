@@ -12,6 +12,7 @@ typedef struct {
 int logo(void);
 int menu(void);
 int modo_de_jogo (void);
+int opcao_invalida(void);
 
 int main(void){
     logo();
@@ -82,12 +83,7 @@ int menu(void){
             return 4;
             break;    
         default:
-            system("cls");
-            printf("****************************************************************************************************************\n");
-            printf("\t\t\t Escolha uma opcao valida.\n ");
-            printf("\t\t\t Aperte ENTRER para voltar. \n");
-            printf("****************************************************************************************************************\n");
-            system("pause > NUL");
+            opcao_invalida();
             if (getchar()){
                 system("cls");
                 return menu();
@@ -131,18 +127,23 @@ int modo_de_jogo (void){
             return 2;
 
         default:
-            system("cls");
-            printf("****************************************************************************************************************\n");
-            printf("\t\t\t Escolha uma opcao valida.\n ");
-            printf("\t\t\t Aperte ENTRER para voltar. \n");
-            printf("****************************************************************************************************************\n");
-            system("pause > NUL");
+            opcao_invalida();
             if (getchar()){
                 system("cls");
                 return modo_de_jogo();
             }
             break;
     }
+    return 0;
+}
+
+int opcao_invalida(void){
+    system("cls");
+    printf("\n\n****************************************************************************************************************\n");
+    printf("\t\t\t Escolha uma opcao valida.\n ");
+    printf("\t\t\t Aperte ENTRER para voltar. \n");
+    printf("****************************************************************************************************************\n");
+    system("pause > NUL");
     return 0;
 }
 

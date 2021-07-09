@@ -119,10 +119,10 @@ int modo_de_jogo (void){
             system("cls");
             printf("\n\n****************************************************************************************************************\n");
             puts(" Digite o nome do jogador 1: ");
-            gets(jogador1.nome);
+            scanf("%s\n", jogador1.nome);
             jogador1.pontuacao=0;
             puts(" Digite o nome do jogador 2: ");
-            gets(jogador2.nome);
+            scanf("%s\n", jogador2.nome);
             jogador2.pontuacao=0;
             return 2;
 

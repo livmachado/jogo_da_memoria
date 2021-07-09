@@ -13,6 +13,7 @@ int logo(void);
 int menu(void);
 int modo_de_jogo (void);
 int opcao_invalida(void);
+int instrucao (void);
 
 int main(void){
     logo();
@@ -67,21 +68,17 @@ int menu(void){
 
     switch (opcao){
         case 1:
-            system("cls");
             modo_de_jogo();
             break;
         case 2:
-            system("cls");
-            return 2;
+            instrucao();
             break;
         case 3:
             system("cls");
             return 3;
             break;
         case 4:
-            system("cls");
-            return 4;
-            break;    
+            exit(1);    
         default:
             opcao_invalida();
             if (getchar()){
@@ -97,6 +94,7 @@ int modo_de_jogo (void){
     int opcao;
     Jogador jogador1, jogador2;
     
+    system("cls");
     printf("\n\n");
     printf("****************************************************************************************************************\n");
     printf("\t\t\t 1- Singleplayer (1 jogador)\n");
@@ -143,6 +141,17 @@ int opcao_invalida(void){
     printf("\t\t\t Escolha uma opcao valida.\n ");
     printf("\t\t\t Aperte ENTRER para voltar. \n");
     printf("****************************************************************************************************************\n");
+    system("pause > NUL");
+    return 0;
+}
+
+int instrucao (void){
+    system("cls");
+    printf("\n\n****************************************************************************************************************\n");
+    printf("************************************************** Instrucao ***************************************************\n");
+    printf("\t\t\t Decore as letras e encontre seus pares.\n\t\t\t   Quantos mais acertos, mais pontos!\n");
+    printf("****************************************************************************************************************\n");
+    printf("\t\t\t Aperte ENTRER para voltar. \n");
     system("pause > NUL");
     return 0;
 }

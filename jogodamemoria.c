@@ -108,21 +108,21 @@ int modo_de_jogo (void){
         case 1:
             system("cls");
             printf("\n\n****************************************************************************************************************\n");
-            puts(" Digite seu nome: ");
-            gets(jogador1.nome);
+            puts("Digite seu nome: ");
+            scanf("%s", jogador1.nome);
             jogador1.pontuacao=0;
-            return 1;
+            break;
 
         case 2:
             system("cls");
             printf("\n\n****************************************************************************************************************\n");
-            puts(" Digite o nome do jogador 1: ");
-            scanf("%s\n", jogador1.nome);
+            puts("Digite o nome do jogador 1: ");
+            scanf("%s", jogador1.nome);
             jogador1.pontuacao=0;
-            puts(" Digite o nome do jogador 2: ");
-            scanf("%s\n", jogador2.nome);
+            puts("Digite o nome do jogador 2: ");
+            scanf("%s", jogador2.nome);
             jogador2.pontuacao=0;
-            return 2;
+            break;
 
         default:
             opcao_invalida();
@@ -149,10 +149,14 @@ int instrucao (void){
     system("cls");
     printf("\n\n****************************************************************************************************************\n");
     printf("************************************************** Instrucao ***************************************************\n");
-    printf("\t\t\t Decore as letras e encontre seus pares.\n\t\t\t   Quantos mais acertos, mais pontos!\n");
+    printf("\t\t\t\t    Decore as letras e encontre seus pares.\n\t\t\t\t      Quantos mais acertos, mais pontos!\n");
     printf("****************************************************************************************************************\n");
-    printf("\t\t\t Aperte ENTRER para voltar. \n");
+    printf("\t\t\t\t\t Aperte ENTRER para voltar. \n");
     system("pause > NUL");
+    if(getchar()){
+        system("cls");
+        return menu();
+    }
     return 0;
 }
 

@@ -103,14 +103,14 @@ int modo_de_jogo (void){
     printf("\t\t\t 2- Multiplayer  (2 jogadores)\n");
     printf("****************************************************************************************************************\n");
     printf("\n\n");
-    printf(" Escolha um modo de jogo:");
+    printf(" Escolha um modo de jogo: ");
     scanf("%d", &opcao);
 
     switch (opcao){
         case 1:
             system("cls");
             printf("\n\n****************************************************************************************************************\n");
-            puts(" Digite seu nome:");
+            puts(" Digite seu nome: ");
             gets(jogador1.nome);
             jogador1.pontuacao=0;
             return 1;
@@ -121,7 +121,7 @@ int modo_de_jogo (void){
             puts(" Digite o nome do jogador 1: ");
             gets(jogador1.nome);
             jogador1.pontuacao=0;
-            puts("\t\t\t Digite o nome do jogador 2: ");
+            puts(" Digite o nome do jogador 2: ");
             gets(jogador2.nome);
             jogador2.pontuacao=0;
             return 2;

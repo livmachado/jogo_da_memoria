@@ -8,12 +8,17 @@ typedef struct {
     int pontuacao;
 } Jogador;
 
+typedef struct {
+    bool carta_aberta;
+} Tabuleiro;
+
 
 int logo(void);
 int menu(void);
 int modo_de_jogo (void);
 int opcao_invalida(void);
 int instrucao (void);
+int play (char jogador1, char jogador2);
 
 int main(void){
     logo();
@@ -110,19 +115,26 @@ int modo_de_jogo (void){
             printf("\n\n****************************************************************************************************************\n");
             puts("Digite seu nome: ");
             scanf("%s", jogador1.nome);
-            jogador1.pontuacao=0;
-            break;
+            printf("****************************************************************************************************************\n");
+            printf("\t\t\t Aperte ENTRER para comecar. \n");
+            if (getchar()){
+                system("cls");
+                return play(jogador1.nome);
+            }
 
         case 2:
             system("cls");
             printf("\n\n****************************************************************************************************************\n");
             puts("Digite o nome do jogador 1: ");
             scanf("%s", jogador1.nome);
-            jogador1.pontuacao=0;
             puts("Digite o nome do jogador 2: ");
             scanf("%s", jogador2.nome);
-            jogador2.pontuacao=0;
-            break;
+            printf("****************************************************************************************************************\n");
+            printf("\t\t\t Aperte ENTRER para comecar. \n");
+            if (getchar()){
+                system("cls");
+                return play(jogador1.nome,jogador2.nome);
+            }
 
         default:
             opcao_invalida();
@@ -160,4 +172,48 @@ int instrucao (void){
     return 0;
 }
 
+int ConstroiTabuleiro (Tabuleiro tabuleiro[2][5]){
+
+    int contadorLinha, contadorColuna;
+
+    for (contadorLinha=0; contadorLinha<2; contadorLinha++){
+        for(contadorColuna=0; contadorColuna<5, contadorColuna++){
+            tabuleiro[i][j].carta_aberta = false            
+        }
+    }
+    
+
+
+}
+
+int multiplayer (char jogador1[40], char jogador2[40], Tabuleiro tabuleiro[2][5]){
+
+    int contadorLinha, contadorColuna, linha1, coluna1, linha2,coluna2;
+
+    
+
+    printf("\n\n****************************************************************************************************************\n");
+    printf("********************************************* Nivel 1 **********************************************************\n");
+    
+    while (
+    
+    printf(" Abra duas cartas, insira LINHA COLUNA da primeira carta: \n");
+    scanf("%d %d", &linha1, &coluna1);
+    printf(" Insira LINHA COLUNA da segunda carta: \n");
+    scanf("%d %d", &linha1, &coluna1);
+
+    tabuleiro[linha1-1][coluna1-1].carta_aberta == true
+
+    if (tabuleiro[linha1-1][coluna1-1] == tabuleiro[linha2-1][coluna2-1]){
+        jogador1.pontuacao=1;
+    } 
+
+
+
+
+
+    return 0;
+    
+
+}
 

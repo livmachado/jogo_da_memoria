@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
+#include <windows.h>
+
+#define Linha 5
+#define Coluna 4 
+#define Pares 10 // 10 pares de cartas
 
 typedef struct {
     char nome [40];
@@ -18,7 +23,7 @@ int menu(void);
 int modo_de_jogo (void);
 int opcao_invalida(void);
 int instrucao (void);
-int play (char jogador1, char jogador2);
+int play_singleplayer(char jogador1.nome);
 
 int main(void){
     logo();
@@ -65,7 +70,7 @@ int menu(void){
     int opcao;
     printf("\n\n");
     printf("****************************************************************************************************************\n");
-    printf("\t\t\t 1 - Iniciar\n\t\t\t 2 - Instrucao\n\t\t\t 3 - Ranking\n\t\t\t 4 - Sair\n");
+    printf("\t\t\t 1 - Iniciar\n\t\t\t 2 - Instrucao\n\t\t\t  3 - Sair\n");
     printf("****************************************************************************************************************\n");
 
     printf("\n Digite a opcao desejada: ");
@@ -79,10 +84,6 @@ int menu(void){
             instrucao();
             break;
         case 3:
-            system("cls");
-            return 3;
-            break;
-        case 4:
             exit(1);    
         default:
             opcao_invalida();
@@ -119,7 +120,7 @@ int modo_de_jogo (void){
             printf("\t\t\t Aperte ENTRER para comecar. \n");
             if (getchar()){
                 system("cls");
-                return play(jogador1.nome);
+                return play_singleplayer(jogador1.nome);
             }
 
         case 2:
@@ -133,7 +134,7 @@ int modo_de_jogo (void){
             printf("\t\t\t Aperte ENTRER para comecar. \n");
             if (getchar()){
                 system("cls");
-                return play(jogador1.nome,jogador2.nome);
+                return play_multiplayer(jogador1.nome,jogador2.nome);
             }
 
         default:
@@ -172,6 +173,11 @@ int instrucao (void){
     return 0;
 }
 
+int play_singleplayer(char jogador1.nome){
+
+    
+}
+/*
 int ConstroiTabuleiro (Tabuleiro tabuleiro[2][5]){
 
     int contadorLinha, contadorColuna;
@@ -207,6 +213,8 @@ int multiplayer (char jogador1[40], char jogador2[40], Tabuleiro tabuleiro[2][5]
     if (tabuleiro[linha1-1][coluna1-1] == tabuleiro[linha2-1][coluna2-1]){
         jogador1.pontuacao=1;
     } 
+
+*/
 
 
 

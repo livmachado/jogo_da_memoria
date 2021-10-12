@@ -23,7 +23,7 @@ int menu(void);
 int modo_de_jogo (void);
 int opcao_invalida(void);
 int instrucao (void);
-int play_singleplayer(char jogador1.nome);
+int play_singleplayer(char jogador1 [40]);
 
 int main(void){
     logo();
@@ -134,7 +134,8 @@ int modo_de_jogo (void){
             printf("\t\t\t Aperte ENTRER para comecar. \n");
             if (getchar()){
                 system("cls");
-                return play_multiplayer(jogador1.nome,jogador2.nome);
+                //play_multiplayer(jogador1.nome,jogador2.nome);
+                return 0;
             }
 
         default:
@@ -173,55 +174,73 @@ int instrucao (void){
     return 0;
 }
 
-int play_singleplayer(char jogador1.nome){
+int preencheCampo(Tabuleiro tabuleiro[Linha][Coluna]){
+    int total_de_cartas = Linha * Coluna, contadorLinha, contadorColuna, contadorCarta;
+    Tabuleiro gabarito[Linha][Coluna];
 
-    
+    srand(time(NULL));
+
+    for(contadorCarta=0; contadorCarta<total_de_cartas;){
+        for(contadorLinha=0; contadorLinha<Linha; contadorLinha++){
+            for (contadorColuna; contadorColuna< Coluna; contadorColuna++){
+                tabuleiro[contadorLinha][contadorColuna]= rand() % 9;
+
+            }
+        }
+
+    }
+
+
+
+
 }
-/*
-int ConstroiTabuleiro (Tabuleiro tabuleiro[2][5]){
 
-    int contadorLinha, contadorColuna;
+int ConstroiTabuleiro (Tabuleiro tabuleiro[Linha][Coluna]){
 
-    for (contadorLinha=0; contadorLinha<2; contadorLinha++){
-        for(contadorColuna=0; contadorColuna<5, contadorColuna++){
+    int contadorLinha, contadorColuna, i, j;
+
+    for (contadorLinha=0; contadorLinha<Linha; contadorLinha++){
+        for(contadorColuna=0; contadorColuna<Coluna; contadorColuna++){
             tabuleiro[i][j].carta_aberta = false            
         }
     }
-    
+
+    preencheCampo(tabuleiro);
 
 
 }
 
-int multiplayer (char jogador1[40], char jogador2[40], Tabuleiro tabuleiro[2][5]){
 
-    int contadorLinha, contadorColuna, linha1, coluna1, linha2,coluna2;
+
+int play_singleplayer(char jogador1, Tabuleiro tabuleiro [Linha][Coluna]){
+
+    int i, j, col[Coluna]; 
 
     
 
     printf("\n\n****************************************************************************************************************\n");
-    printf("********************************************* Nivel 1 **********************************************************\n");
+    printf("********************************************* Jogo da memoria **********************************************************\n");
     
-    while (
     
+    for(i=0; i<Coluna; i++){
+        Col[i]=i;
+        printf("%d\t", col[i]+1);
+    }
+
+    printf ("\n");
+
+    for(i=0; i<Linha; i++){
+        printf("\t%d", i+1)
+        for(j=0; j<Coluna; j++){
+            printf("[%c]\t", tabuleiro[i][j])
+        }
+    }
+
     printf(" Abra duas cartas, insira LINHA COLUNA da primeira carta: \n");
     scanf("%d %d", &linha1, &coluna1);
     printf(" Insira LINHA COLUNA da segunda carta: \n");
     scanf("%d %d", &linha1, &coluna1);
 
-    tabuleiro[linha1-1][coluna1-1].carta_aberta == true
-
-    if (tabuleiro[linha1-1][coluna1-1] == tabuleiro[linha2-1][coluna2-1]){
-        jogador1.pontuacao=1;
-    } 
-
-*/
-
-
-
-
-
-    return 0;
-    
-
 }
+
 
